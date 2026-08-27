@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="FormFit - AI-powered exercise form analysis and repetition tracking."
+    >
+
+    <title>FormFit | AI Fitness Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                FORM<span>FIT</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#dashboard">Dashboard</a>
+
+                <a href="#start" class="nav-button">
+                    Start Analysis
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    AI-POWERED FITNESS ANALYSIS
+                </div>
+
+                <h1>
+                    Train smarter.
+                    <span>Move better.</span>
+                </h1>
+
+                <p class="hero-description">
+                    FormFit uses computer vision and human pose estimation
+                    to analyze exercise movements, track repetitions,
+                    evaluate form, and provide meaningful performance
+                    insights in real time.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#start"
+                        class="primary-button"
+                    >
+                        Start Analysis
+                    </a>
+
+                    <a
+                        href="#features"
+                        class="secondary-button"
+                    >
+                        Explore Features
+                    </a>
+
+                </div>
+
+                <div class="hero-meta">
+
+                    <div>
+                        <strong>AI</strong>
+                        <span>Pose Analysis</span>
+                    </div>
+
+                    <div>
+                        <strong>REAL-TIME</strong>
+                        <span>Movement Tracking</span>
+                    </div>
+
+                    <div>
+                        <strong>SMART</strong>
+                        <span>Performance Insights</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="analysis-card">
+
+                    <div class="analysis-header">
+
+                        <div>
+                            <span class="status-dot"></span>
+                            Live Analysis
+                        </div>
+
+                        <span class="exercise-label">
+                            Bicep Curl
+                        </span>
+
+                    </div>
+
+
+                    <div class="pose-area">
+
+                        <div class="pose-grid"></div>
+
+                        <div class="pose-circle"></div>
+
+                        <div class="pose-figure">
+
+                            <div class="head"></div>
+
+                            <div class="body-line"></div>
+
+                            <div class="shoulder-line"></div>
+
+                            <div class="left-arm"></div>
+
+                            <div class="right-arm"></div>
+
+                            <div class="left-leg"></div>
+
+                            <div class="right-leg"></div>
+
+                            <span class="joint j1"></span>
+                            <span class="joint j2"></span>
+                            <span class="joint j3"></span>
+                            <span class="joint j4"></span>
+                            <span class="joint j5"></span>
+                            <span class="joint j6"></span>
+                            <span class="joint j7"></span>
+                            <span class="joint j8"></span>
+
+                        </div>
+
+
+                        <div class="analysis-tag tag-top">
+                            POSE DETECTED
+                        </div>
+
+                        <div class="analysis-tag tag-bottom">
+                            MOVEMENT TRACKING
+                        </div>
+
+                    </div>
+
+
+                    <div class="metrics-row">
+
+                        <div class="metric">
+
+                            <span>REPETITIONS</span>
+
+                            <strong>
+                                <span id="repCount">12</span>
+                                <small>/15</small>
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>FORM SCORE</span>
+
+                            <strong>
+                                <span id="formScore">92</span>%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>ROM</span>
+
+                            <strong>
+                                <span id="romValue">98</span>°
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             FEATURES
+        =============================== -->
+
+        <section
+            class="features-section"
+            id="features"
+        >
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        CORE CAPABILITIES
+                    </span>
+
+                    <h2>
+                        Intelligent analysis behind every movement.
+                    </h2>
+
+                    <p>
+                        FormFit combines computer vision, pose estimation,
+                        movement analysis, and performance tracking into
+                        one focused fitness system.
+                    </p>
+
+                </div>
+
+
+                <div class="features-grid">
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div class="feature-icon">
+                            P
+                        </div>
+
+                        <h3>
+                            Pose Estimation
+                        </h3>
+
+                        <p>
+                            Detect body landmarks and track human movement
+                            using real-time pose estimation technology.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div class="feature-icon">
+                            R
+                        </div>
+
+                        <h3>
+                            Rep Tracking
+                        </h3>
+
+                        <p>
+                            Automatically identify movement cycles and
+                            count completed exercise repetitions.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div class="feature-icon">
+                            F
+                        </div>
+
+                        <h3>
+                            Form Analysis
+                        </h3>
+
+                        <p>
+                            Evaluate exercise technique using joint angles,
+                            movement patterns, and posture information.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            04
+                        </div>
+
+                        <div class="feature-icon">
+                            M
+                        </div>
+
+                        <h3>
+                            ROM Analysis
+                        </h3>
+
+                        <p>
+                            Measure range of motion and monitor movement
+                            quality throughout an exercise.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            05
+                        </div>
+
+                        <div class="feature-icon">
+                            D
+                        </div>
+
+                        <h3>
+                            Performance Dashboard
+                        </h3>
+
+                        <p>
+                            Transform exercise data into clear performance
+                            metrics and visual fitness insights.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-number">
+                            06
+                        </div>
+
+                        <div class="feature-icon">
+                            I
+                        </div>
+
+                        <h3>
+                            Intelligent Feedback
+                        </h3>
+
+                        <p>
+                            Receive meaningful feedback designed to help
+                            users understand and improve their movement.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             HOW IT WORKS
+        =============================== -->
+
+        <section
+            class="process-section"
+            id="how-it-works"
+        >
+
+            <div class="section-container">
+
+                <div class="section-heading centered">
+
+                    <span class="section-label">
+                        HOW FORMFIT WORKS
+                    </span>
+
+                    <h2>
+                        From movement to insight.
+                    </h2>
+
+                    <p>
+                        The system processes exercise movement through
+                        a simple analysis pipeline.
+                    </p>
+
+                </div>
+
+
+                <div class="process-grid">
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Capture
+                        </h3>
+
+                        <p>
+                            Exercise movement is captured through the
+                            camera input.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-line"></div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Detect
+                        </h3>
+
+                        <p>
+                            Body landmarks are detected using pose
+                            estimation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-line"></div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Analyze
+                        </h3>
+
+                        <p>
+                            Angles, repetitions, range of motion,
+                            and form are evaluated.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-line"></div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Improve
+                        </h3>
+
+                        <p>
+                            Results are presented as useful performance
+                            insights.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             DASHBOARD PREVIEW
+        =============================== -->
+
+        <section
+            class="dashboard-section"
+            id="dashboard"
+        >
+
+            <div class="section-container">
+
+                <div class="dashboard-preview">
+
+                    <div class="dashboard-sidebar">
+
+                        <div class="mini-logo">
+                            FORM<span>FIT</span>
+                        </div>
+
+                        <div class="sidebar-menu">
+
+                            <div class="menu-item active">
+                                Overview
+                            </div>
+
+                            <div class="menu-item">
+                                Exercises
+                            </div>
+
+                            <div class="menu-item">
+                                Performance
+                            </div>
+
+                            <div class="menu-item">
+                                History
+                            </div>
+
+                        </div>
+
+                        <div class="sidebar-footer">
+                            AI Fitness System
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-main">
+
+                        <div class="dashboard-top">
+
+                            <div>
+
+                                <span class="dashboard-label">
+                                    PERFORMANCE DASHBOARD
+                                </span>
+
+                                <h2>
+                                    Your movement at a glance.
+                                </h2>
+
+                            </div>
+
+                            <div class="dashboard-status">
+                                Analysis Active
+                            </div>
+
+                        </div>
+
+
+                        <div class="dashboard-stats">
+
+                            <div class="dashboard-stat">
+
+                                <span>
+                                    TOTAL REPS
+                                </span>
+
+                                <strong id="dashboardReps">
+                                    12
+                                </strong>
+
+                                <small>
+                                    Current session
+                                </small>
+
+                            </div>
+
+
+                            <div class="dashboard-stat">
+
+                                <span>
+                                    FORM SCORE
+                                </span>
+
+                                <strong>
+                                    <span id="dashboardScore">
+                                        92
+                                    </span>%
+                                </strong>
+
+                                <small>
+                                    Excellent
+                                </small>
+
+                            </div>
+
+
+                            <div class="dashboard-stat">
+
+                                <span>
+                                    RANGE OF MOTION
+                                </span>
+
+                                <strong>
+                                    <span id="dashboardRom">
+                                        98
+                                    </span>°
+                                </strong>
+
+                                <small>
+                                    Optimal range
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-card">
+
+                            <div class="chart-header">
+
+                                <div>
+                                    <strong>
+                                        Movement Performance
+                                    </strong>
+
+                                    <span>
+                                        Current Session
+                                    </span>
+                                </div>
+
+                                <div class="chart-value">
+                                    +8.4%
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart">
+
+                                <div class="chart-y">
+                                    <span>100</span>
+                                    <span>75</span>
+                                    <span>50</span>
+                                    <span>25</span>
+                                    <span>0</span>
+                                </div>
+
+                                <div class="chart-area">
+
+                                    <div class="grid-line line-1"></div>
+                                    <div class="grid-line line-2"></div>
+                                    <div class="grid-line line-3"></div>
+                                    <div class="grid-line line-4"></div>
+
+                                    <svg
+                                        viewBox="0 0 600 220"
+                                        preserveAspectRatio="none"
+                                    >
+
+                                        <polyline
+                                            points="
+                                            0,175
+                                            70,145
+                                            140,155
+                                            210,105
+                                            280,125
+                                            350,85
+                                            420,100
+                                            490,55
+                                            600,40
+                                            "
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             START ANALYSIS
+        =============================== -->
+
+        <section
+            class="cta-section"
+            id="start"
+        >
+
+            <div class="cta-container">
+
+                <div class="cta-content">
+
+                    <span class="section-label">
+                        READY TO MOVE?
+                    </span>
+
+                    <h2>
+                        Turn every repetition into meaningful progress.
+                    </h2>
+
+                    <p>
+                        Start your FormFit analysis and discover a smarter
+                        way to understand your exercise performance.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        id="startAnalysisButton"
+                    >
+                        Start Exercise Analysis
+                    </button>
+
+                </div>
+
+
+                <div class="cta-metrics">
+
+                    <div>
+                        <strong>
+                            92%
+                        </strong>
+
+                        <span>
+                            Form Score
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            12
+                        </strong>
+
+                        <span>
+                            Repetitions
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            98°
+                        </strong>
+
+                        <span>
+                            ROM
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    FORM<span>FIT</span>
+                </div>
+
+                <p>
+                    AI-powered exercise form analysis
+                    and repetition tracking.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#features">
+                    Features
+                </a>
+
+                <a href="#how-it-works">
+                    How It Works
+                </a>
+
+                <a href="#dashboard">
+                    Dashboard
+                </a>
+
+            </div>
+
+
+            <div class="footer-copy">
+
+                <p>
+                    FormFit — Intelligent exercise analysis
+                    through computer vision and pose estimation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
