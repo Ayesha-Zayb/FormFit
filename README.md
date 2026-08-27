@@ -6,7 +6,7 @@
 
 ### AI-Powered Exercise Form Analysis & Repetition Tracking
 
-Computer vision and pose estimation for intelligent, real-time exercise analysis.
+Computer vision and human pose estimation for real-time exercise movement analysis.
 
 </div>
 
@@ -16,21 +16,25 @@ Computer vision and pose estimation for intelligent, real-time exercise analysis
 
 **FormFit** is an AI-powered fitness application that uses computer vision and human pose estimation to analyze exercise movements in real time.
 
-The system is designed to help users monitor their workouts by detecting body landmarks, analyzing movement patterns, tracking repetitions, evaluating exercise form, and presenting performance information through a dedicated dashboard.
+The application captures movement through a webcam, detects human body landmarks using **MediaPipe**, and analyzes body positioning and joint angles to support exercise repetition tracking and form analysis.
 
-FormFit combines **AI-based movement analysis, computer vision, backend services, database components, and a user interface** into a modular fitness application.
+FormFit combines a **Python Flask backend, computer vision, pose estimation, movement analysis, and a browser-based frontend** into a modular fitness application.
+
+The project was developed to demonstrate the practical use of artificial intelligence and computer vision in fitness technology.
 
 ---
 
 ## Key Features
 
-* **Real-Time Pose Estimation** — Detects human body landmarks during exercise.
-* **Automatic Repetition Tracking** — Identifies exercise repetitions based on movement patterns.
-* **Exercise Form Analysis** — Evaluates movement and posture during supported exercises.
-* **Range of Motion Analysis** — Uses body-position information to analyze movement range.
-* **Performance Scoring** — Provides exercise-related performance measurements.
-* **Workout Dashboard** — Presents exercise results and performance information through a dedicated interface.
-* **Modular Architecture** — Separates AI, backend, database, frontend, and documentation components.
+* **Real-Time Pose Estimation** — Detects human body landmarks using MediaPipe.
+* **Webcam-Based Analysis** — Processes live camera input for exercise analysis.
+* **Movement Analysis** — Uses body landmarks and joint angles to evaluate movement.
+* **Repetition Tracking** — Tracks exercise repetitions based on movement states.
+* **Exercise Form Analysis** — Provides form-related analysis during supported exercises.
+* **Range of Motion Analysis** — Uses joint positioning to evaluate movement range.
+* **Performance Metrics** — Generates exercise-related measurements during analysis.
+* **Interactive Web Interface** — Provides a browser-based interface for starting and monitoring analysis.
+* **Modular Architecture** — Separates frontend, backend, and AI analysis components.
 
 ---
 
@@ -39,7 +43,10 @@ FormFit combines **AI-based movement analysis, computer vision, backend services
 FormFit follows a computer-vision-based processing pipeline:
 
 ```text
-Camera Input
+Webcam Input
+      │
+      ▼
+Frame Capture
       │
       ▼
 Pose Detection
@@ -48,24 +55,24 @@ Pose Detection
 Body Landmark Extraction
       │
       ▼
-Movement & Angle Analysis
+Joint Angle Calculation
       │
       ▼
-Repetition Detection
+Movement Analysis
       │
       ▼
-Form Evaluation
+Repetition Tracking
       │
       ▼
-Performance Metrics
+Exercise Form Analysis
       │
       ▼
-Dashboard
+Performance Information
 ```
 
-The camera captures the user's movement. Pose estimation identifies relevant body landmarks, which are then analyzed to understand movement and exercise patterns.
+The webcam provides live frames to the AI analysis component. MediaPipe detects the user's body landmarks, after which relevant joint angles and movement patterns are analyzed.
 
-The resulting information is used to track repetitions and generate exercise performance insights.
+The analysis is then used to identify exercise movement states, track repetitions, and generate exercise-related performance information.
 
 ---
 
@@ -79,36 +86,43 @@ The resulting information is used to track repetitions and generate exercise per
                                    ▼
                          ┌───────────────────┐
                          │     Frontend      │
-                         │   User Interface  │
+                         │ HTML / CSS / JS   │
                          └─────────┬─────────┘
                                    │
                                    ▼
                          ┌───────────────────┐
-                         │      Backend      │
-                         │ Application Logic │
-                         └───────┬─────┬─────┘
-                                 │     │
-                    ┌────────────┘     └────────────┐
-                    ▼                               ▼
-             ┌──────────────┐               ┌──────────────┐
-             │   AI / Pose  │               │   Database   │
-             │    Analysis  │               │    Storage   │
-             └──────────────┘               └──────────────┘
+                         │ Flask Backend     │
+                         │   app.py          │
+                         └─────────┬─────────┘
+                                   │
+                                   ▼
+                         ┌───────────────────┐
+                         │   AI Analysis     │
+                         │ Pose Estimation   │
+                         └─────────┬─────────┘
+                                   │
+                         ┌─────────┴─────────┐
+                         ▼                   ▼
+                ┌────────────────┐  ┌────────────────┐
+                │ MediaPipe Pose │  │ Angle Analysis │
+                │   Landmarks    │  │ & Movement     │
+                └────────────────┘  └────────────────┘
 ```
 
 ---
 
 ## Technology Stack
 
-| Technology                | Purpose                                      |
-| ------------------------- | -------------------------------------------- |
-| **Python**                | Core application development                 |
-| **OpenCV**                | Computer vision and camera processing        |
-| **MediaPipe**             | Human pose estimation and landmark detection |
-| **Tkinter**               | Dashboard and interface components           |
-| **Backend Technologies**  | Application and service logic                |
-| **Database Technologies** | Data storage and persistence                 |
-| **Frontend Technologies** | User-facing interface                        |
+| Technology     | Purpose                                              |
+| -------------- | ---------------------------------------------------- |
+| **Python**     | Core application development                         |
+| **Flask**      | Backend web application and API routes               |
+| **OpenCV**     | Webcam access, frame processing, and computer vision |
+| **MediaPipe**  | Human pose estimation and body landmark detection    |
+| **NumPy**      | Numerical processing and data operations             |
+| **HTML5**      | Frontend structure                                   |
+| **CSS3**       | Frontend styling                                     |
+| **JavaScript** | Frontend interaction and API communication           |
 
 ---
 
@@ -117,35 +131,50 @@ The resulting information is used to track repetitions and generate exercise per
 ```text
 FormFit/
 │
-├── ai/
-│   └── AI and pose-analysis components
-│
 ├── backend/
-│   └── Backend application components
-│
-├── database/
-│   └── Database and data-related components
-│
-├── docs/
-│   └── Project documentation
+│   ├── app.py
+│   │   └── Flask backend and application routes
+│   │
+│   └── ai/
+│       ├── angle_calculator.py
+│       │   └── Joint-angle calculations
+│       │
+│       ├── pose_analyzer.py
+│       │   └── MediaPipe pose analysis and exercise tracking
+│       │
+│       └── pose_landmarker_full.task
+│           └── MediaPipe pose landmark model
 │
 ├── frontend/
-│   └── Frontend and interface components
+│   ├── index.html
+│   │   └── Main web interface
+│   │
+│   ├── script.js
+│   │   └── Frontend interaction and backend communication
+│   │
+│   └── style.css
+│       └── Interface styling
 │
 ├── dashboard.py
-│   └── Dashboard application
+│   └── Dashboard-related application component
 │
-├── requirements.txt
-│   └── Python dependencies
+├── .gitignore
+│   └── Git exclusion rules
 │
 ├── README.md
 │   └── Project documentation
 │
-└── LICENSE
-    └── MIT License
+├── requirements.txt
+│   └── Python dependencies
+│
+├── LICENSE
+│   └── MIT License
+│
+└── formfit-banner.png
+    └── Repository banner
 ```
 
-> Local virtual environments such as `venv/` and `venv312/` should not be committed to the repository. They are local development environments and should be excluded using `.gitignore`.
+> Virtual environments such as `venv/`, `venv_old/`, and `venv312/` are local development environments and are intentionally excluded from version control.
 
 ---
 
@@ -165,15 +194,23 @@ cd FormFit
 
 ### 3. Create a Virtual Environment
 
+For Python 3.12:
+
 ```bash
 python -m venv venv
 ```
 
-### 4. Activate the Environment
+### 4. Activate the Virtual Environment
 
-**Windows**
+**Windows PowerShell**
 
-```bash
+```powershell
+venv\Scripts\Activate.ps1
+```
+
+**Windows Command Prompt**
+
+```cmd
 venv\Scripts\activate
 ```
 
@@ -193,30 +230,147 @@ pip install -r requirements.txt
 
 ## Running FormFit
 
-Start the dashboard with:
+Start the Flask backend from the project root:
 
 ```bash
-python dashboard.py
+python backend/app.py
 ```
 
-Depending on the project's current configuration, additional application components may need to be started separately.
+The application will start on:
+
+```text
+http://127.0.0.1:5000
+```
+
+Open the address in a web browser to access the FormFit interface.
+
+### Health Check
+
+FormFit also provides a health-check endpoint:
+
+```text
+http://127.0.0.1:5000/health
+```
+
+A successful response indicates that the backend service is online.
+
+### Starting Exercise Analysis
+
+The application exposes the analysis endpoint:
+
+```text
+http://127.0.0.1:5000/start-analysis
+```
+
+The frontend can use this endpoint to launch the AI exercise analysis process.
+
+---
+
+## Camera Requirements
+
+FormFit uses a webcam for real-time exercise analysis.
+
+For best results:
+
+* Use a working webcam.
+* Position the camera so the relevant body landmarks are visible.
+* Maintain sufficient lighting.
+* Stand far enough from the camera for the required body joints to remain visible.
+* Perform supported exercises within the camera's field of view.
+
+Because pose estimation depends on visible body landmarks, camera positioning and lighting can affect detection accuracy.
+
+---
+
+## AI Analysis
+
+The AI component is built around **MediaPipe Pose Landmarker**.
+
+The analysis pipeline uses detected body landmarks to calculate joint angles and interpret movement.
+
+The project includes the required model asset:
+
+```text
+backend/ai/pose_landmarker_full.task
+```
+
+The main analysis component is:
+
+```text
+backend/ai/pose_analyzer.py
+```
+
+Joint-angle calculations are handled by:
+
+```text
+backend/ai/angle_calculator.py
+```
+
+Together, these components provide the foundation for exercise movement analysis and repetition tracking.
+
+---
+
+## Backend
+
+The Flask backend is located at:
+
+```text
+backend/app.py
+```
+
+It provides:
+
+* Frontend file serving
+* Application routing
+* Health monitoring
+* Exercise-analysis initiation
+* Communication between the web interface and the AI analysis component
+
+The backend launches the AI analyzer as a separate process when exercise analysis is requested.
+
+---
+
+## Frontend
+
+The browser interface is contained within the `frontend/` directory.
+
+### HTML
+
+```text
+frontend/index.html
+```
+
+Defines the main application interface.
+
+### CSS
+
+```text
+frontend/style.css
+```
+
+Provides the visual design and layout.
+
+### JavaScript
+
+```text
+frontend/script.js
+```
+
+Handles frontend interaction and communication with the Flask backend.
 
 ---
 
 ## Project Preview
 
-A dedicated preview section can be used to showcase FormFit's interface, exercise analysis, and performance dashboard.
+The repository includes a dedicated project banner at the top of this README.
 
-Recommended repository structure for screenshots:
+Additional screenshots can be added in future updates to demonstrate:
 
-```text
-docs/
-└── images/
-    ├── formfit-dashboard.png
-    └── formfit-exercise-analysis.png
-```
-
-Once project screenshots are available, they can be displayed here.
+* FormFit dashboard
+* Exercise analysis interface
+* Real-time pose detection
+* Repetition tracking
+* Performance information
 
 ---
 
@@ -226,20 +380,21 @@ FormFit demonstrates practical applications of:
 
 * Computer vision
 * Human pose estimation
-* Real-time movement analysis
-* Exercise repetition detection
-* Exercise form evaluation
-* Range-of-motion analysis
-* Performance measurement
-* Python application development
-* Modular software architecture
-* Fitness technology
+* Real-time webcam processing
+* Body landmark detection
+* Joint-angle calculation
+* Movement analysis
+* Exercise repetition tracking
+* Exercise form analysis
+* Flask backend development
+* Frontend and backend integration
+* AI-assisted fitness technology
 
 ---
 
 ## Future Improvements
 
-Future versions of FormFit may include:
+Potential future versions of FormFit may include:
 
 * Support for additional exercises
 * More advanced form correction
@@ -247,10 +402,11 @@ Future versions of FormFit may include:
 * Personalized workout recommendations
 * Workout history and progress tracking
 * Expanded performance analytics
-* User profiles and authentication
+* User authentication and profiles
+* More detailed exercise feedback
 * Mobile application support
 * Cloud-based synchronization
-* Additional AI-assisted fitness features
+* Advanced AI-assisted fitness features
 
 ---
 
